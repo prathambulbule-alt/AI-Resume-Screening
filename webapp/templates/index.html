@@ -3,23 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>AI Resume Screening</title>
-
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-
         body {
             font-family: Arial, Helvetica, sans-serif;
             min-height: 100vh;
             background: #f5f7fb;
             color: #1f2937;
         }
-
         .navbar {
             background: white;
             border-bottom: 1px solid #e5e7eb;
@@ -28,12 +24,10 @@
             justify-content: space-between;
             align-items: center;
         }
-
         .logo {
             font-size: 21px;
             font-weight: 700;
         }
-
         .badge {
             background: #eef2ff;
             color: #4f46e5;
@@ -42,29 +36,24 @@
             font-size: 13px;
             font-weight: 600;
         }
-
         .hero {
             text-align: center;
-            padding: 65px 20px 35px;
+            padding: 60px 20px 35px;
         }
-
         .hero h1 {
             font-size: 42px;
             margin-bottom: 14px;
         }
-
         .hero h1 span {
             color: #4f46e5;
         }
-
         .hero p {
             color: #6b7280;
             font-size: 17px;
-            max-width: 600px;
+            max-width: 620px;
             margin: auto;
             line-height: 1.6;
         }
-
         .card {
             width: 90%;
             max-width: 700px;
@@ -72,44 +61,59 @@
             background: white;
             padding: 35px;
             border-radius: 20px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
         }
-
         .upload-area {
             border: 2px dashed #c7c9d1;
             border-radius: 16px;
-            padding: 45px 20px;
+            padding: 40px 20px;
             text-align: center;
-            transition: 0.2s;
         }
-
-        .upload-area:hover {
-            border-color: #4f46e5;
-            background: #fafaff;
-        }
-
         .upload-icon {
-            font-size: 42px;
+            font-size: 48px;
             margin-bottom: 15px;
         }
-
         .upload-area h2 {
             font-size: 21px;
             margin-bottom: 8px;
         }
-
         .upload-area p {
             color: #6b7280;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
-
-        input[type="file"] {
+        .options {
+            display: grid;
+            gap: 12px;
+            max-width: 420px;
+            margin: auto;
+        }
+        .option-btn {
+            position: relative;
             display: block;
-            margin: 0 auto 22px;
-            max-width: 100%;
+            width: 100%;
+            padding: 15px 20px;
+            border: 1px solid #d1d5db;
+            border-radius: 10px;
+            background: white;
+            color: #1f2937;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
         }
-
-        button {
+        .option-btn:hover {
+            border-color: #4f46e5;
+            background: #fafaff;
+        }
+        .option-btn input {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .analyze-btn {
+            margin-top: 20px;
             background: #4f46e5;
             color: white;
             border: none;
@@ -118,14 +122,18 @@
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
-            transition: 0.2s;
+            width: 100%;
         }
-
-        button:hover {
+        .analyze-btn:hover {
             background: #4338ca;
-            transform: translateY(-1px);
         }
-
+        .selected {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #4f46e5;
+            font-weight: 600;
+            min-height: 20px;
+        }
         .result {
             margin-top: 30px;
             padding: 25px;
@@ -134,25 +142,21 @@
             border: 1px solid #bbf7d0;
             text-align: center;
         }
-
         .result-label {
             color: #6b7280;
             font-size: 14px;
             margin-bottom: 8px;
         }
-
         .category {
             font-size: 28px;
             font-weight: 700;
             color: #15803d;
         }
-
         .success {
             font-size: 14px;
             color: #166534;
             margin-top: 8px;
         }
-
         .error {
             margin-top: 20px;
             padding: 15px;
@@ -162,108 +166,141 @@
             border: 1px solid #fecaca;
             text-align: center;
         }
-
         .footer {
             text-align: center;
             color: #9ca3af;
             font-size: 13px;
             padding-bottom: 30px;
         }
-
         @media (max-width: 600px) {
+            .navbar {
+                padding: 15px 5%;
+            }
+            .logo {
+                font-size: 18px;
+            }
+            .badge {
+                font-size: 11px;
+            }
+            .hero {
+                padding: 45px 18px 25px;
+            }
             .hero h1 {
                 font-size: 31px;
             }
-
+            .hero p {
+                font-size: 15px;
+            }
             .card {
+                width: 92%;
                 padding: 20px;
             }
-
             .upload-area {
                 padding: 30px 15px;
             }
         }
     </style>
 </head>
-
 <body>
-
     <nav class="navbar">
         <div class="logo">🤖 AI Resume Screening</div>
         <div class="badge">Machine Learning</div>
     </nav>
-
     <section class="hero">
         <h1>Smart <span>Resume Screening</span></h1>
-
         <p>
-            Upload a resume and our machine learning model will
-            analyze it and predict the most suitable job category.
+            Upload your resume and our machine learning model
+            will analyze it and predict the most suitable job category.
         </p>
     </section>
-
     <div class="card">
-
         <form method="POST" enctype="multipart/form-data">
-
             <div class="upload-area">
-
                 <div class="upload-icon">📄</div>
-
                 <h2>Upload Your Resume</h2>
-
                 <p>
-                    Supported format: PDF
+                    Choose how you want to add your resume
                 </p>
-
-                <input
-                    type="file"
-                    name="resume"
-                    accept=".pdf"
-                    required
+                <div class="options">
+                    <label class="option-btn">
+                        📄 Upload PDF
+                        <input
+                            type="file"
+                            name="resume"
+                            accept=".pdf"
+                            onchange="selectFile(this)"
+                        >
+                    </label>
+                    <label class="option-btn">
+                        🖼️ Choose Photo
+                        <input
+                            type="file"
+                            name="resume"
+                            accept="image/*"
+                            onchange="selectFile(this)"
+                        >
+                    </label>
+                    <label class="option-btn">
+                        📷 Take Photo
+                        <input
+                            type="file"
+                            name="resume"
+                            accept="image/*"
+                            capture="environment"
+                            onchange="selectFile(this)"
+                        >
+                    </label>
+                </div>
+                <div class="selected" id="selectedFile"></div>
+                <button
+                    type="submit"
+                    class="analyze-btn"
                 >
-
-                <button type="submit">
                     🔍 Analyze Resume
                 </button>
-
             </div>
-
         </form>
-
         {% if prediction %}
-
         <div class="result">
-
             <div class="result-label">
                 Prediction Result
             </div>
-
             <div class="category">
                 {{ prediction }}
             </div>
-
             <div class="success">
                 ✓ Resume successfully analyzed
             </div>
-
         </div>
-
         {% endif %}
-
         {% if error %}
-
         <div class="error">
             {{ error }}
         </div>
-
         {% endif %}
-
     </div>
-
     <div class="footer">
         AI Resume Screening • Powered by Machine Learning
     </div>
-
+    <script>
+        function selectFile(input) {
+            const selectedFile =
+                document.getElementById("selectedFile");
+            if (input.files.length > 0) {
+                selectedFile.textContent =
+                    "✓ Selected: " + input.files[0].name;
+                // Clear the other file inputs
+                const inputs =
+                    document.querySelectorAll(
+                        'input[type="file"]'
+                    );
+                inputs.forEach(function(fileInput) {
+                    if (fileInput !== input) {
+                        fileInput.value = "";
+                    }
+                });
+            }
+        }
+    </script>
 </body>
 </html>
