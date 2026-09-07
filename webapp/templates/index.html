@@ -11,296 +11,241 @@
             padding: 0;
         }
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            min-height: 100vh;
+            font-family: Arial, sans-serif;
             background: #f5f7fb;
-            color: #1f2937;
+            color: #222;
+            min-height: 100vh;
         }
-        .navbar {
+        nav {
             background: white;
-            border-bottom: 1px solid #e5e7eb;
-            padding: 18px 7%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            padding: 18px 30px;
+            border-bottom: 1px solid #ddd;
+            font-size: 20px;
+            font-weight: bold;
         }
-        .logo {
-            font-size: 21px;
-            font-weight: 700;
-        }
-        .badge {
-            background: #eef2ff;
-            color: #4f46e5;
-            padding: 7px 13px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
+        .container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 20px;
         }
         .hero {
             text-align: center;
-            padding: 60px 20px 35px;
+            margin-bottom: 35px;
         }
-        .hero h1 {
-            font-size: 42px;
-            margin-bottom: 14px;
-        }
-        .hero h1 span {
-            color: #4f46e5;
-        }
-        .hero p {
-            color: #6b7280;
-            font-size: 17px;
-            max-width: 620px;
-            margin: auto;
-            line-height: 1.6;
-        }
-        .card {
-            width: 90%;
-            max-width: 700px;
-            margin: 25px auto 60px;
-            background: white;
-            padding: 35px;
+        .badge {
+            display: inline-block;
+            background: #e8f0ff;
+            padding: 8px 14px;
             border-radius: 20px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-        }
-        .upload-area {
-            border: 2px dashed #c7c9d1;
-            border-radius: 16px;
-            padding: 40px 20px;
-            text-align: center;
-        }
-        .upload-icon {
-            font-size: 48px;
+            font-size: 14px;
             margin-bottom: 15px;
         }
-        .upload-area h2 {
-            font-size: 21px;
-            margin-bottom: 8px;
+        h1 {
+            font-size: 38px;
+            margin-bottom: 12px;
         }
-        .upload-area p {
-            color: #6b7280;
-            margin-bottom: 25px;
+        .hero p {
+            color: #666;
+            font-size: 17px;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: center;
         }
         .options {
             display: grid;
-            gap: 12px;
-            max-width: 420px;
-            margin: auto;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 25px 0;
         }
         .option-btn {
-            position: relative;
-            display: block;
-            width: 100%;
-            padding: 15px 20px;
-            border: 1px solid #d1d5db;
-            border-radius: 10px;
+            border: 2px solid #ddd;
             background: white;
-            color: #1f2937;
-            font-size: 16px;
-            font-weight: 600;
+            border-radius: 12px;
+            padding: 20px 10px;
             cursor: pointer;
+            font-size: 16px;
             transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 70px;
         }
         .option-btn:hover {
             border-color: #4f46e5;
-            background: #fafaff;
-        }
-        .option-btn input {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            opacity: 0;
-            pointer-events: none;
+            background: #f8f8ff;
         }
         .analyze-btn {
-            margin-top: 20px;
+            width: 100%;
+            border: none;
             background: #4f46e5;
             color: white;
-            border: none;
-            padding: 14px 32px;
-            border-radius: 9px;
-            font-size: 16px;
-            font-weight: 600;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 17px;
+            font-weight: bold;
             cursor: pointer;
-            width: 100%;
         }
-        .analyze-btn:hover {
-            background: #4338ca;
+        .analyze-btn:active {
+            transform: scale(0.98);
         }
-        .selected {
-            margin-top: 15px;
+        #selectedFile {
+            margin: 15px 0;
+            color: #555;
             font-size: 14px;
-            color: #4f46e5;
-            font-weight: 600;
             min-height: 20px;
         }
         .result {
-            margin-top: 30px;
-            padding: 25px;
-            border-radius: 15px;
-            background: #f0fdf4;
-            border: 1px solid #bbf7d0;
-            text-align: center;
-        }
-        .result-label {
-            color: #6b7280;
-            font-size: 14px;
-            margin-bottom: 8px;
-        }
-        .category {
-            font-size: 28px;
-            font-weight: 700;
-            color: #15803d;
-        }
-        .success {
-            font-size: 14px;
-            color: #166534;
-            margin-top: 8px;
+            margin-top: 25px;
+            padding: 20px;
+            background: #eefbf2;
+            border-radius: 12px;
         }
         .error {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            background: #fef2f2;
-            color: #b91c1c;
-            border: 1px solid #fecaca;
-            text-align: center;
+            margin-top: 25px;
+            padding: 20px;
+            background: #fff0f0;
+            color: #c62828;
+            border-radius: 12px;
         }
-        .footer {
+        footer {
             text-align: center;
-            color: #9ca3af;
+            margin-top: 40px;
+            color: #888;
             font-size: 13px;
-            padding-bottom: 30px;
+        }
+        /* Hidden file input */
+        #resumeInput {
+            display: none;
         }
         @media (max-width: 600px) {
-            .navbar {
-                padding: 15px 5%;
+            .container {
+                margin: 30px auto;
+                padding: 15px;
             }
-            .logo {
-                font-size: 18px;
+            h1 {
+                font-size: 30px;
             }
-            .badge {
-                font-size: 11px;
+            .options {
+                grid-template-columns: 1fr;
             }
-            .hero {
-                padding: 45px 18px 25px;
-            }
-            .hero h1 {
-                font-size: 31px;
-            }
-            .hero p {
-                font-size: 15px;
-            }
-            .card {
-                width: 92%;
-                padding: 20px;
-            }
-            .upload-area {
-                padding: 30px 15px;
+            .option-btn {
+                min-height: 60px;
             }
         }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">🤖 AI Resume Screening</div>
+<nav>
+    🤖 AI Resume Screening
+</nav>
+<div class="container">
+    <div class="hero">
         <div class="badge">Machine Learning</div>
-    </nav>
-    <section class="hero">
-        <h1>Smart <span>Resume Screening</span></h1>
+        <h1>Smart Resume Screening</h1>
         <p>
-            Upload your resume and our machine learning model
+            Upload a resume and our machine learning model
             will analyze it and predict the most suitable job category.
         </p>
-    </section>
+    </div>
     <div class="card">
-        <form method="POST" enctype="multipart/form-data">
-            <div class="upload-area">
-                <div class="upload-icon">📄</div>
-                <h2>Upload Your Resume</h2>
-                <p>
-                    Choose how you want to add your resume
-                </p>
-                <div class="options">
-                    <label class="option-btn">
-                        📄 Upload PDF
-                        <input
-                            type="file"
-                            name="resume"
-                            accept=".pdf"
-                            onchange="selectFile(this)"
-                        >
-                    </label>
-                    <label class="option-btn">
-                        🖼️ Choose Photo
-                        <input
-                            type="file"
-                            name="resume"
-                            accept="image/*"
-                            onchange="selectFile(this)"
-                        >
-                    </label>
-                    <label class="option-btn">
-                        📷 Take Photo
-                        <input
-                            type="file"
-                            name="resume"
-                            accept="image/*"
-                            capture="environment"
-                            onchange="selectFile(this)"
-                        >
-                    </label>
-                </div>
-                <div class="selected" id="selectedFile"></div>
+        <form method="POST"
+              enctype="multipart/form-data"
+              id="resumeForm">
+            <!-- One single file input -->
+            <input
+                type="file"
+                id="resumeInput"
+                name="resume"
+                onchange="fileSelected(this)"
+            >
+            <div class="options">
                 <button
-                    type="submit"
-                    class="analyze-btn"
-                >
-                    🔍 Analyze Resume
+                    type="button"
+                    class="option-btn"
+                    onclick="selectPDF()">
+                    📄 Upload PDF
+                </button>
+                <button
+                    type="button"
+                    class="option-btn"
+                    onclick="selectPhoto()">
+                    🖼️ Choose Photo
+                </button>
+                <button
+                    type="button"
+                    class="option-btn"
+                    onclick="takePhoto()">
+                    📷 Take Photo
                 </button>
             </div>
+            <div id="selectedFile">
+                No file selected
+            </div>
+            <button
+                type="submit"
+                class="analyze-btn">
+                🔍 Analyze Resume
+            </button>
         </form>
         {% if prediction %}
-        <div class="result">
-            <div class="result-label">
-                Prediction Result
+            <div class="result">
+                <h2>Result</h2>
+                <p>
+                    Predicted Job Category:
+                    <strong>{{ prediction }}</strong>
+                </p>
             </div>
-            <div class="category">
-                {{ prediction }}
-            </div>
-            <div class="success">
-                ✓ Resume successfully analyzed
-            </div>
-        </div>
         {% endif %}
         {% if error %}
-        <div class="error">
-            {{ error }}
-        </div>
+            <div class="error">
+                {{ error }}
+            </div>
         {% endif %}
     </div>
-    <div class="footer">
+    <footer>
         AI Resume Screening • Powered by Machine Learning
-    </div>
-    <script>
-        function selectFile(input) {
-            const selectedFile =
-                document.getElementById("selectedFile");
-            if (input.files.length > 0) {
-                selectedFile.textContent =
-                    "✓ Selected: " + input.files[0].name;
-                // Clear the other file inputs
-                const inputs =
-                    document.querySelectorAll(
-                        'input[type="file"]'
-                    );
-                inputs.forEach(function(fileInput) {
-                    if (fileInput !== input) {
-                        fileInput.value = "";
-                    }
-                });
-            }
+    </footer>
+</div>
+<script>
+    const resumeInput = document.getElementById("resumeInput");
+    // Upload PDF
+    function selectPDF() {
+        resumeInput.accept = ".pdf,application/pdf";
+        resumeInput.removeAttribute("capture");
+        resumeInput.value = "";
+        resumeInput.click();
+    }
+    // Choose photo from gallery
+    function selectPhoto() {
+        resumeInput.accept = "image/*";
+        resumeInput.removeAttribute("capture");
+        resumeInput.value = "";
+        resumeInput.click();
+    }
+    // Take photo using camera
+    function takePhoto() {
+        resumeInput.accept = "image/*";
+        resumeInput.setAttribute("capture", "environment");
+        resumeInput.value = "";
+        resumeInput.click();
+    }
+    // Show selected file
+    function fileSelected(input) {
+        const selectedFile =
+            document.getElementById("selectedFile");
+        if (input.files && input.files.length > 0) {
+            const file = input.files[0];
+            selectedFile.textContent =
+                "✓ Selected: " + file.name;
+        } else {
+            selectedFile.textContent =
+                "No file selected";
         }
-    </script>
+    }
+</script>
 </body>
 </html>

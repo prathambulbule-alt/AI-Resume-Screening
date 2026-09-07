@@ -23,6 +23,7 @@ def home():
         # Get the selected file from any of the 3 upload options
         file = request.files.get("resume")
         if not file or file.filename == "":
+            print("UPLOAD FILE:", file.filename if file else "NO FILE")
             error = "Please upload or capture a resume."
             return render_template(
                 "index.html",
