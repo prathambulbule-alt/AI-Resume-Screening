@@ -1,12 +1,15 @@
+import os
 import pymupdf
 import pytesseract
 from pathlib import Path
 
 
-# Tesseract OCR path
-pytesseract.pytesseract.tesseract_cmd = (
-    r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-)
+# Use Windows Tesseract path locally.
+# On Render/Linux, use Tesseract from PATH.
+if os.name == "nt":
+    pytesseract.pytesseract.tesseract_cmd = (
+        r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+    )
 
 
 def extract_text_from_pdf(file_path):
